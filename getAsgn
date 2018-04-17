@@ -1,0 +1,25 @@
+#!/bin/bash
+
+if [ "$1" != "" ]; then
+   cp ~kmammen-grader/evaluations/S18/357/$1/Makefile ./
+   mkdir ./tests/
+   touch ./projDesc
+   printf "REQUIREMENTS\n" >> projDesc
+   cat ~kmammen-grader/evaluations/S18/357/$1/requirements >> projDesc
+   printf "\nCORE TESTS\n" >> projDesc
+   for i in $(ls ~kmammen-grader/evaluations/S18/357/$1/tests/core); do
+      if [[ $i == test[0-9]* ]]; then
+         printf "\n--------------------------------------------------------\nCore $i Description: \n" >> projDesc
+         cat ~kmammen-grader/evaluations/S18/357/$1/tests/core/$i/description >> projDesc
+      fi
+   done
+   printf "\nFEATURE TESTS\n" >> projDesc
+   for i in $(ls ~kmammen-grader/evaluations/S18/357/$1/tests/feature); do
+      if [[ $i == test[0-9]* ]]; then
+         printf "\n--------------------------------------------------------\nFeature $i Description: \n" >> projDesc
+         cat ~kmammen-grader/evaluations/S18/357/$1/tests/feature/$i/description >> projDesc
+      fi
+   done
+else
+   echo "Usage: getAsgn ASSIGNMENT"
+fi
