@@ -1,0 +1,2 @@
+# sanitySaver
+A collection of bash scripts for Kurt Mammen's Systems Programming class at Cal Poly. All of the project specifications, grading information and boilerplate code is on his server. To access it, we have to copy it into our directories through the unix terminal. Eventually I got tired of doing that, so I wrote this script to pull the assignment spec and test cases and cat them into a more readable form. I hope it helps you as much as it helped me!
